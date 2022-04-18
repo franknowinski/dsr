@@ -1,0 +1,2 @@
+class DataSubjectRight < ApplicationRecord
+end
