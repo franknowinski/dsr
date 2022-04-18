@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_18_145650) do
+ActiveRecord::Schema.define(version: 2022_04_18_151013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 2022_04_18_145650) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_id"], name: "index_api_keys_on_company_id"
+  end
+
+  create_table "data_subject_rights", force: :cascade do |t|
+    t.string "request_id"
+    t.string "request_type"
+    t.integer "user_uuid"
+    t.integer "company_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_data_subject_rights_on_company_id"
+    t.index ["user_uuid"], name: "index_data_subject_rights_on_user_uuid"
   end
 
 end
